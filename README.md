@@ -1,10 +1,10 @@
-posts = {
-	title: '',
-	content: '',
-	slug: '',
-	comments: [],
-	category: [],
-	tags: []
-};
+ A simple blog using Node.js, Express, Mongodb and Backbone.js
+
+
+
+
+
+
+
 
 
