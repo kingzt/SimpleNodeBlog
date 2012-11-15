@@ -1,0 +1,41 @@
+doctype 5
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/css/style.css')
+
+		body(class='home blog two-column right-sidebar')
+			#page.hfeed
+				header#branding
+					hgroup(style='height: 140px')
+						h1#site-title: a(href='/index') Simple Blog
+					nav#access
+						.menu-menu-container
+							ul#menu-menu.menu
+								li(class='menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home')
+									a(href='/index') 首页
+								li(class='menu-item menu-item-type-custom menu-item-object-custom')
+									a(href='/') Backbone Version
+
+				#main
+					#primary
+						#content
+							block content
+					#secondary
+						aside#recent-posts-2
+							h3 Recent Posts
+							ul
+								for post in locals.recentPosts
+									li
+										a(href='/blog/#{post.slug}') #{post.title}
+
+						aside#categories-2
+							h3 Categories
+							ul
+								for category in locals.categories
+									li.cat-item
+										a(href='/category/#{category.slug}') #{category.name}
+						aside#meta-2
+					div(style='clear: both')
+
+				footer#colophon

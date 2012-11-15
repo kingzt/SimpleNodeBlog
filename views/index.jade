@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  - if (typeof categoryName != 'undefined')
+    h1(style='font-size: 26px; font-weight: bold')= categoryName
+  for post in posts
+    article(class='post type-post status-publish format-standard hentry category-uncategorized')
+      header.entry-header
+        h1.entry-title: a(href='/blog/#{post.slug}', title='Permalink to #{post.title}') #{post.title}
+        .entry-meta
+          span.sep Posted on 
+          span
+            time.entry-date= post.post_date
+          span.byauthor
+            span.sep by 
+            span.author.vcard= post.author
+      .entry-content!= post.content
+      footer.entry-meta
+        span.cat-links
+          span(class='entry-utility-prep entry-utility-prep-cat-links') Posted in 
+          for category in post.category
+            span #{category}

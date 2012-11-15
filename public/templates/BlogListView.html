@@ -1,0 +1,19 @@
+<% _.each(model, function(item) { %> 
+<article class="post type-post status-publish format-standard hentry category-uncategorized">
+ <header class="entry-header">
+  <h1 class="entry-title"><a href="/#blog/<%= item.slug %>" title="Permalink to <%= item.title %>"><%= item.title %></a></h1>
+  <div class="entry-meta">
+   <span class="sep">Posted on </span>
+   <span><time class="entry-date"><%= item.post_date.split('T')[0] %></time></span>
+   <span class="byauthor"><span class="sep">by </span><span class="author vcard"><%= item.author %></span></span>
+  </div>
+ </header>
+ <div class="entry-content" style="padding: 20px 0">
+  <%= item.content %> 
+ </div>
+ <footer class="entry-meta">
+  <span class="cat-links"><span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> 
+  <% _.each(item.category, function(category) { %><span><%= category %></span><% }); %><span class="sep"></span></span>
+ </footer>
+</article>
+<% }) %>

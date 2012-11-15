@@ -1,0 +1,36 @@
+extend layout
+
+block content
+  div(class='post-1 post type-post status-publish format-standard hentry category-1')
+    h1 #{post.title}
+    .entry-meta
+      span.meta-prep.meta-prep-author Posted on 
+      span.entry-date #{post.post_date} 
+      span.meta-sep by 
+      span.author #{post.author} 
+    .entry-content
+      p!= post.content
+    .entry-utility
+      span.cat-links
+        span.entry-utility-prep.entry-utility-prep-cat-links Posted in 
+        for category in post.category
+          span.entry-utility-prep.entry-utility-prep-cat-links #{category} 
+      span.comments-link
+
+  #disqus_thread
+    script(type='text/javascript')
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nodeblogtest'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      noscript
+        | Please enable JavaScript to view the
+        a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.
+      a.dsq-brlink(href='http://disqus.com')
+        | comments powered by
+        span.logo-disqus Disqus
+      

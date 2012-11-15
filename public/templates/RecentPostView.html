@@ -1,0 +1,6 @@
+<h3>Recent Posts</h3>
+<ul>
+	<% _.each(model, function(item) { %>
+	<li><a href="/#blog/<%= item.slug %>"><%= item.title %></a></li>
+	<% }); %>
+</ul>
